@@ -65,7 +65,9 @@ Logger.log(users._info);
     "_firstByQuery":"a method to get the first record by a specific query",
     "_findManyByQuery":"a method to get all the records by a specific query",
     "_findManyBy":"a method to get all the records by a specific column from a given value",
-    "_all":"a method to get all the records"
+    "_all":"a method to get all the records",
+    "_id": "a method that creates an incremental id for the database"
+
 }
 */
 
@@ -310,7 +312,7 @@ This section provides various functions designed to facilitate the use of the Or
 Orma allows generating unique identifiers for each table. It supports two modes for generating identifiers: using incremental numeric IDs or unique UUIDs (Universal Unique Identifiers). The UUID format used is a modified version created by Orma to further minimize the possibility of creating duplicate values.
 
 ```javascript
-const id = users._id() // UUID version
+const id = users._id(true) // UUID version
 const incremental = users._id() // Incremental Version
 ```
 
