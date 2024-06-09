@@ -1,7 +1,20 @@
 
 # Orma
+Orma is a powerful library designed to streamline data management within Google Apps Script using Google Sheets as a database. It serves as an Object-Relational Mapping (ORM) tool, transforming data into objects for easier manipulation. 
 
-Orma is an ORM for Google Apps Script that uses Google Sheets as a database and allows you to manage data in the form of objects instead of multidimensional arrays. It also enables you to create new records, modify, and delete data.
+**ORM for Google Apps Script**: Orma simplifies data handling by allowing developers to work with objects instead of multidimensional arrays, leveraging the familiar structure of Google Sheets.
+
+**Simplified Usage**: Orma's intuitive interface and comprehensive documentation make it easy for developers to integrate and utilize its features within their Google Apps Script projects.
+
+Overall, Orma empowers developers to efficiently manage data within Google Sheets, offering a flexible and robust solution for ORM operations within the Google Apps Script environment.
+
+
+
+
+
+
+
+
 
 ## Table of Contents
 - [Before to start](#Before-to-start)
