@@ -196,6 +196,7 @@ This function will return all the values present in the table.
   const allUsers = users._all();
   const data = allUsers.data;
 ```
+[Click here](#Data-Structure) to understand the data structure of the response.
 
 
 ### Get By Id 
