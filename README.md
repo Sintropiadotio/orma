@@ -309,7 +309,6 @@ To delete a single record, simply invoke the `_delete` function available in the
 
 ```javascript
 const user = users._find(1);
-user.name = "Luca";
 user._delete(); 
 ```
 
@@ -317,7 +316,7 @@ user._delete();
 To delete multiple elements simultaneously after obtaining them, simply invoke the `_delete` function present in the main object."
 ```javascript
 const manyUsers = users._findManyBy("name","Matteo");
-allUsers._save();
+manyUsers._delete();
 ```
 ## Other Functions
 This section provides various functions designed to facilitate the use of the Orma library, making the user's work simpler and more efficient.
