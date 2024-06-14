@@ -247,7 +247,7 @@ const newUser = users._create(
         id: users._id(),
         name: "Matteo",
         email: "matteo@sintropia.io",
-        password: ENDO.hash("superPassword1!")
+        password: ORMA.hash("superPassword1!")
     }
 )
 ```
@@ -262,13 +262,13 @@ const newUsers = users._createMany(
             id: users._id(),
             name: "Matteo",
             email: "matteo@sintropia.io",
-            password: ENDO.hash("superPassword1!")
+            password: ORMA.hash("superPassword1!")
         },
         {
-            id: users._id()
+            id: users._id(),
             name: "Daniele",
             email: "daniele@sintropia.io",
-            password: ENDO.hash("superPassword1!")
+            password: ORMA.hash("superPassword1!")
         },
     ]
 )
