@@ -1,6 +1,11 @@
 # Changelog
 Thanks to this file, you will always be up-to-date on the health status of this library and stay informed about new releases, implementations, and bug fixes.
 
+## [Version 6] - PATCH - 2024-06-13
+
+### Added
+- Implemented custom errors in crud operations
+  
 ## [Version 5] - PATCH - 2024-06-13
 
 ### Fixed
