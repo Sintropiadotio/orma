@@ -48,7 +48,7 @@ const db = ORMA.openDbById(ssId);
 Logger.log(db); //Spreadsheet
 
 const tables = db._getTables();
-const {users} = tables;
+const {users} = tables; //users is the name of the sheet we want to open
 Logger.log(users); //Sheet
 ```
 ### Underscore Prefix & Autocomplete
@@ -67,7 +67,7 @@ Logger.log(db._info);
 */
 
 const tables = db._getTables();
-const {users} = tables;
+const {users} = tables; //users is the name of the sheet we want to open
 Logger.log(users._info); 
 /*
 {
@@ -94,7 +94,7 @@ const ssId = "your_spreadsheet_id";
 const db = ORMA.openDbById(ssId);
 
 const tables = db._getTables()
-const { users } = tables;
+const { users } = tables; //users is the name of the sheet we want to open
 
 const user = users._find("e6021aa4-5685-4cad-a395-922c7db47a39_1717682521060");
 Logger.log(user);
@@ -180,6 +180,7 @@ A database in the Orma library is a Spreadsheet instance with embedded more meth
 ### Open a table 
 For example you want to get the "users" sheet to retrieve some data.
 You need to call the _getTables function to get all the available tables in the database and then extract the needed one.
+Logging the 'tables' variable will give you an object containing the names of all available tables. In the example below, we will retrieve the 'users' table.
 ```javascript
   const tables = db._getTables();
   const {users} = tables;
@@ -341,16 +342,6 @@ const password = "123456";
 const email = "matteo@sintropia.io"
 const hashedPassword = ORMA.hash(password, email);
 ```
-
-
-
-
-
-
-
-
-
-
 
 ## Authors
 
