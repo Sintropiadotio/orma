@@ -1,4 +1,3 @@
-
 # Orma
 Orma is a powerful library designed to streamline data management within Google Apps Script using Google Sheets as a database. It serves as an Object-Relational Mapping (ORM) tool, transforming data into objects for easier manipulation. 
 
@@ -44,7 +43,7 @@ So, as in the case below, the variables `db` and `users` are indeed instances of
 
 ```javascript
 const ssId = "your_spreadsheet_id";
-const db = ORMA.openDbById(ssId);
+const db = ORMA.openDb(ssId);
 Logger.log(db); //Spreadsheet
 
 const tables = db._getTables();
@@ -58,7 +57,7 @@ Google Apps Script does not offer autocomplete suggestions for second-level func
 
 ```javascript
 const ssId = "your_spreadsheet_id";
-const db = ORMA.openDbById(ssId);
+const db = ORMA.openDb(ssId);
 Logger.log(db._info); 
 /*
 {
@@ -71,15 +70,15 @@ const {users} = tables; //users is the name of the sheet we want to open
 Logger.log(users._info); 
 /*
 {
-    "_create":"a method to create a new record as an object",
-    "_createMany":"a method to create multiple records as array of objects",
-    "_find":"a method to find a record by its id value",
-    "_firstBy":"a method to get the first record by a specific column from a given value",
-    "_firstByQuery":"a method to get the first record by a specific query",
-    "_findManyByQuery":"a method to get all the records by a specific query",
-    "_findManyBy":"a method to get all the records by a specific column from a given value",
-    "_all":"a method to get all the records",
-    "_id": "a method that creates an incremental id for the database"
+    "_create":"create a new record as an object",
+    "_createMany":"create multiple records as array of objects",
+    "_find":"find a record by its id value",
+    "_firstBy":"get the first record by a specific column from a given value",
+    "_firstByQuery":"get the first record by a specific query",
+    "_findManyByQuery":"get all the records by a specific query",
+    "_findManyBy":"get all the records by a specific column from a given value",
+    "_all":"get all the records",
+    "_id": "creates an incremental id for the database, or a uuid."
 
 }
 */
@@ -91,7 +90,7 @@ Once you use the ORM and retrieve data from Google Sheets with functions like `_
 Let's see an example to better understand:
 ```javascript
 const ssId = "your_spreadsheet_id";
-const db = ORMA.openDbById(ssId);
+const db = ORMA.openDb(ssId);
 
 const tables = db._getTables()
 const { users } = tables; //users is the name of the sheet we want to open
@@ -172,9 +171,45 @@ To install Orma insert this script id in the library section of your Google Apps
 In this section you will learn to open `Databases` (Spreadsheet) and then `Tables` (Sheets). As mentioned above `Databases` are instances of the `Spreadsheet` Class and `Tables` are instances of the `Sheet` Class.
 ### Open a database
 A database in the Orma library is a Spreadsheet instance with embedded more methods, so is important to understand that you can use this entity as a Spreadsheet instance and not only as an Orma Database.
+
+Orma introduces the `openDb` method, which deprecates the `openDbById` method that will still be usable until version 10.
+
+Let's see the powerful of the new `openDb` method.
+##### Open Active Spreadsheet as a Database
+You can use the active spreadsheet as a database by simply calling the `openDb` method without passing any arguments.
 ```javascript
-  const ssId = "your_spreadsheet_id";
-  const db = ORMA.openDbById(ssId);
+const db = ORMA.openDb();
+```
+##### Open Database By spreadsheet id
+Similar to the old `openDbById` method, the `openDb` method also allows you to open a database by passing the spreadsheet id as an argument.
+```javascript
+const ssId = "your_spreadsheet_id";
+const db = ORMA.openDb(ssId);
+```
+##### Open Database By spreadsheet instance
+You can also open the database from the spreadsheet instance of the SpreadsheetApp class.
+```javascript
+const ssId = "your_spreadsheet_id";
+const ss = SpreadsheetApp.openById(ssId);
+const db = ORMA.openDb(ss);
+```
+##### Open Database By File instance
+By obtaining a file instance from the DriveApp class of a spreadsheet, you can still use this instance to open your database by passing it as an argument to the `openDb` function.
+```javascript
+const ssId = "your_spreadsheet_id";
+const file = DriveApp.getFileById(ssId);
+const db = ORMA.openDb(file);
+```
+
+##### Deprecated Methods
+The `openDbById` method has been deprecated. It will be usable from version 1 to version 10 of Orma, but it is recommended to start using the `openDb` method.
+Let's see how it works.
+```javascript
+//This method is deprecated, but still available until version 10.
+const ssId = "your_spreadsheet_id";
+const db = ORMA.openDbById(ssId);
+  
+  
 ```
 
 ### Open a table 
@@ -362,5 +397,3 @@ If you have any feedback, please reach out to us at matteo@sintropia.io
 ## 🔗 Links
 [![sintropia](https://img.shields.io/badge/sintropia.io-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://sintropia.io/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/matteoimperiale)
-
-
